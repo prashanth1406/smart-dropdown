@@ -1,0 +1,27 @@
+
+<div class="col-sm-12 col-md-12 form-group p-0">
+<label>Countries</label>
+<div >
+    <input type="text" class="form-control icon-dropdown"  (click)="selectCountry($event)" [(ngModel)]="selectedCountryName" readonly>
+    <div style="position: relative;"  *ngIf="showCountriesDropdown">
+        <img src="./assets/search.svg" class="search-icon" />
+        <input class="form-control pl-md" (input)="onSearchCountryData($event)"
+            [matAutocomplete]="countryAutoComplete" #countriesFocus>
+        <mat-autocomplete #countryAutoComplete="matAutocomplete"
+            (optionSelected)="selectedCountry($event)">
+            <mat-option *ngFor="let country of countries|slice:0:noOfItems"
+                [value]="country.name">{{country.name}}</mat-option>
+            <mat-option *ngIf='!countries.length'>{{'"'+countriesFocus.value+'"'}} not found
+              <button type="button" *ngIf="privilege" class="btn btn-primary btn-xs pull-right mt-2" (click)="addCountry(countriesFocus.value)">Add & Select</button>
+            </mat-option>
+            <span class="text-more" *ngIf="(countries.length-noOfItems)>0" (click)="loadMore(countries.length-noOfItems,$event);countriesFocus.blur()"> {{(countries.length-noOfItems) +' more...'}}</span>
+        </mat-autocomplete>
+
+    </div>
+</div>
+</div>
+
+
+
+
+

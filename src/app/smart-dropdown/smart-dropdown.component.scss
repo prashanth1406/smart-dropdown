@@ -1,0 +1,27 @@
+input{
+  width: 50%;
+}
+.mt-2{
+  margin-top:2% !important;
+}
+.icon-dropdown {
+  background: url(../../assets/dropdownIcon.svg) 98% no-repeat;
+  cursor: pointer;
+}
+.search-icon {
+  position: absolute;
+  top: 11px;
+  left: 4px;
+  z-index: 3;
+}
+.pl-md{
+  padding-left: 22px;
+}
+
+.text-more{
+  position: relative;
+  bottom: 9px;
+  right: 12px;
+  float: right;
+  cursor: pointer;
+}
